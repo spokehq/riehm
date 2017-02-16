@@ -1,0 +1,54 @@
+/*
+Theme Name: Riehm Theme (that rhymes)
+Theme URI: http://www.elegantthemes.com/gallery/divi/
+Version: 1.0.0
+Template: Divi
+*/
+
+@import url("../Divi/style.css");
+
+/* GENERAL */
+  /* Page Header */
+  .et_pb_fullwidth_header {min-height:300px; }
+
+/* TESTIMONIAL SLIDER */
+#testimonial-slider .et_pb_slide_description {text-align:left !important;}
+#testimonial-slider blockquote p {color:#666 !important;text-shadow:none !important;}
+#testimonial-slider .et_pb_slide_description, #testimonial-slider .et_pb_slider_fullwidth_off .et_pb_slide_description {padding:0 !important;}
+
+/* PRICING TABLE */
+#pricing-table-home {display:flex;}
+#pricing-table-home .et_pb_pricing_table {position:relative;}
+#pricing-table-home .et_pb_pricing_table_button {width:70%;position:absolute;bottom:1em;left:15%;}
+#pricing-table-home .et_pb_pricing_table:last-child .et_pb_sum {
+	font-size:50px;line-height:80px;	
+}
+
+/* EVENTS */
+.spoke-events-slider .et_pb_slide_with_no_image {background-image:url('http://ampersand.local:5757/wp-content/uploads/2017/01/carrotts-onions.jpg') !important;}
+.spoke-events.et_pb_post_slider_image_top .et_pb_event .et_pb_slide_image {
+	width:100%;
+}
+.spoke-events.et_pb_post_slider_image_top .et_pb_slide_description {padding:8% 0%;}
+.spoke-events.et_pb_post_slider_image_top .et_pb_slide_content {font-size:14px;}
+
+@media (max-width: 767px) {
+	.spoke-events .et_pb_slide_image {display:block !important;}
+}
+@media (min-width: 981px) {
+	.spoke-events {display:flex;}
+	.spoke-events-2 .et_pb_event {width:47.25%;}
+	.spoke-events-3 .et_pb_event {width: 29.666%;margin-right:5.5%;float:left;position:relative;}
+	.spoke-events-4 .et_pb_event {width:20.875%;}
+	.spoke-events .et_pb_event:last-child {margin-right:0 !important;}
+}
+
+/* BLOCKQUOTES */
+/*
+blockquote:before, blockquote:after {
+	color:#666;text-shadow:none;
+	position:absolute;width:38px;height:38px;font-size:75px;line-height:1;
+}
+blockquote:before {top:0;left:0;content: '\2018';}
+blockquote:after {bottom:0;right:0;content: '\2019';}
+*/
