@@ -12455,6 +12455,7 @@ body.et-pb-preview #main-content .container ol {
 
 /* CARD */
 .card-riehm {
+  background: #fff;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
   padding-bottom: 60px; }
   .card-riehm h2 {
