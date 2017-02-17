@@ -12234,6 +12234,20 @@ span.comment_date {
   -moz-transition: background-color 0.5s ease;
   transition: background-color 0.5s ease; }
 
+/* BODY */
+.et_pb_section {
+  background-color: inherit !important; }
+
+body {
+  background-color: pink; }
+  body.custom-background {
+    background-color: inherit;
+    background: #f7f7f7 url(../img/pattern3.png) repeat;
+    background-repeat: repeat !important; }
+  body.et_cover_background {
+    background-repeat: repeat !important;
+    background-size: inherit !important; }
+
 /* TYPOGRAPHY */
 h1, h2, h3, h4, h5, h6 {
   font-family: "ff-ernestine-web-pro" !important; }
@@ -12338,6 +12352,20 @@ body.et-pb-preview #main-content .container ul {
     margin-right: 10px;
     top: -2px;
     position: relative; }
+  #left-area ul.tribe-bar-views-list li:before, #left-area ul.tribe-events-sub-nav li:before,
+  .entry-content ul.tribe-bar-views-list li:before,
+  .entry-content ul.tribe-events-sub-nav li:before,
+  .comment-content ul.tribe-bar-views-list li:before,
+  .comment-content ul.tribe-events-sub-nav li:before,
+  body.et-pb-preview #main-content .container ul.tribe-bar-views-list li:before,
+  body.et-pb-preview #main-content .container ul.tribe-events-sub-nav li:before {
+    content: none; }
+
+#left-area .tribe-events-notices ul li:before,
+.entry-content .tribe-events-notices ul li:before,
+.comment-content .tribe-events-notices ul li:before,
+body.et-pb-preview #main-content .container .tribe-events-notices ul li:before {
+  content: none; }
 
 #left-area ol,
 .entry-content ol,
@@ -12379,6 +12407,16 @@ body.et-pb-preview #main-content .container ol {
     color: #DB1928 !important; }
 
 /* Page Header */
+#top-menu li li a {
+  width: 235px; }
+
+.nav li ul {
+  width: auto; }
+  .nav li ul li a:hover {
+    background: #fff;
+    color: #DB1928;
+    padding: 6px 10px; }
+
 #logo {
   max-height: 90px !important; }
 
@@ -12478,29 +12516,34 @@ body.et-pb-preview #main-content .container ol {
   color: #fff !important;
   background: #DB1928 !important; }
 
-#pricing-table-home {
-  display: flex; }
-  #pricing-table-home .et_pb_pricing_table {
-    position: relative;
-    padding-bottom: 7em;
-    border: none; }
-    #pricing-table-home .et_pb_pricing_table .et_pb_sum {
-      line-height: 0.5em;
-      font-weight: 500; }
-    #pricing-table-home .et_pb_pricing_table .et_pb_frequency {
-      font-size: 20px; }
-    #pricing-table-home .et_pb_pricing_table:last-child .et_pb_sum {
-      font-size: 50px;
-      line-height: 1.1em; }
-  #pricing-table-home .et_pb_pricing_content_top {
-    padding: 20px 0 0; }
-  #pricing-table-home .et_pb_pricing_table_button {
-    width: 70%;
-    position: absolute;
-    bottom: 2em;
-    left: 15%; }
-  #pricing-table-home .et_pb_pricing_content {
-    font-size: 110%; }
+@media (min-width: 1000px) {
+  #pricing-table-home {
+    display: flex; } }
+
+#pricing-table-home .et_pb_pricing_table {
+  position: relative;
+  padding-bottom: 7em;
+  border: none; }
+  #pricing-table-home .et_pb_pricing_table .et_pb_sum {
+    line-height: 0.5em;
+    font-weight: 500; }
+  #pricing-table-home .et_pb_pricing_table .et_pb_frequency {
+    font-size: 20px; }
+  #pricing-table-home .et_pb_pricing_table:last-child .et_pb_sum {
+    font-size: 50px;
+    line-height: 1.1em; }
+
+#pricing-table-home .et_pb_pricing_content_top {
+  padding: 20px 0 0; }
+
+#pricing-table-home .et_pb_pricing_table_button {
+  width: 70%;
+  position: absolute;
+  bottom: 2em;
+  left: 15%; }
+
+#pricing-table-home .et_pb_pricing_content {
+  font-size: 110%; }
 
 /* BLURB */
 .et_pb_blurb h4 {
@@ -12672,12 +12715,12 @@ body.et-pb-preview #main-content .container ol {
     .spoke-events .et_pb_event:last-child {
       margin-right: 0 !important; } }
 
-/* CATEGORY */
-.category #archive-header {
+/* ARCHIVE */
+#archive-header {
   background: #DB1928;
   padding: 83px 0 40px; }
 
-.category h1.archive-title {
+h1.archive-title {
   color: #fff;
   font-size: 40px;
   width: 80%;
@@ -12685,19 +12728,87 @@ body.et-pb-preview #main-content .container ol {
   margin: auto;
   text-transform: uppercase; }
 
+/* EVENTS */
+.post-type-archive-tribe_events.et_right_sidebar #left-area,
+.single-tribe_events.et_right_sidebar #left-area {
+  padding-left: 0;
+  width: 100%; }
+
+.post-type-archive-tribe_events .tribe-events-venue-map,
+.single-tribe_events .tribe-events-venue-map {
+  border: none;
+  background: transparent; }
+
+.post-type-archive-tribe_events .tribe-events-event-image {
+  width: 100%; }
+
+.post-type-archive-tribe_events .tribe-events-content {
+  width: 100%;
+  padding: 0;
+  float: none; }
+
+@media (min-width: 550px) {
+  .post-type-archive-tribe_events .tribe-events-event-image {
+    width: 30%; }
+  .post-type-archive-tribe_events .tribe-events-content {
+    width: 63%;
+    padding: 0; } }
+
+@media (min-width: 981px) {
+  .post-type-archive-tribe_events h2.tribe-events-list-event-title {
+    font-size: 37px; } }
+
+.post-type-archive-tribe_events .author.location {
+  margin: 0 0 30px; }
+
+@media (max-width: 768px) {
+  .post-type-archive-tribe_events .tribe-event-schedule-details {
+    padding-left: 12px;
+    padding-right: 12px; } }
+
+.tribe-events-list .time-details,
+.tribe-events-list .tribe-events-venue-details {
+  line-height: 1.9; }
+
+#tribe-events-content .tribe-events-tooltip h4 {
+  background: #DB1928;
+  font-size: 14px;
+  padding: 6px; }
+
+#tribe-events-content .tribe-events-tooltip .tribe-events-event-body {
+  font-size: 14px; }
+
+.single-tribe_events .tribe-events-schedule h2 {
+  font-size: 37px; }
+
+.single-tribe_events #main-content {
+  padding-top: 9em; }
+
 /* BLOG */
+h1.entry-title, h2.entry-title {
+  font-size: 37px;
+  color: #DB1928; }
+
 .blog article.post {
   border-bottom: 1px solid #e6e6e6;
   padding-bottom: 50px; }
-
-.single-post .entry-title {
-  color: #DB1928; }
 
 .single-post #content-area {
   padding-top: 2em; }
 
 .pagination {
   padding-bottom: 40px; }
+
+/* SIDEBAR */
+@media (min-width: 981px) {
+  .et_right_sidebar #sidebar {
+    padding-left: 0;
+    padding-right: 30px; }
+  .et_right_sidebar #left-area {
+    padding-right: 0;
+    padding-left: 5.5%; }
+  #main-content .container:before {
+    content: none; } }
 
 /* FOOTER */
 #main-footer {

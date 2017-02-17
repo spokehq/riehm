@@ -1,12 +1,20 @@
 <?php get_header(); ?>
 
 <div id="main-content">
-	<?php the_archive_title( '<div id="archive-header"><h1 class="archive-title">', '</h1></div>' );?>
+	<?php if(is_home()) {
+			echo '<div id="archive-header"><h1 class="archive-title">Recipes</h1></div>';
+		} else {
+			the_archive_title( '<div id="archive-header"><h1 class="archive-title">', '</h1></div>' );
+		}?>
 	
 	<div class="container">
 		
 		<div id="content-area" class="clearfix">
+			
+			<?php get_sidebar(); ?>
+			
 			<div id="left-area">
+				
 		<?php
 			if ( have_posts() ) :
 				while ( have_posts() ) : the_post();
@@ -75,7 +83,7 @@
 			?>
 			</div> <!-- #left-area -->
 
-			<?php get_sidebar(); ?>
+			
 		</div> <!-- #content-area -->
 	</div> <!-- .container -->
 </div> <!-- #main-content -->
