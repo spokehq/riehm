@@ -12275,6 +12275,45 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   font-size: 20px; }
 
+input[type=text], input[type=password], input[type=tel], input[type=email], input.text, input.title, textarea, select {
+  border-radius: 3px;
+  padding: 5px 10px; }
+
+input[type="submit"] {
+  background: #DB1928;
+  color: #fff;
+  -webkit-appearance: none;
+  border: none;
+  font-size: 14px;
+  border-radius: 3px;
+  border: none;
+  padding: 4px 8px 6px;
+  margin-left: 3px; }
+
+for.mailing-list {
+  margin-top: 20px; }
+
+.input-hold {
+  position: relative;
+  width: 40%;
+  display: inline-block;
+  margin-right: 2%; }
+  .input-hold input {
+    width: 100%;
+    font-size: 16px; }
+  .input-hold input[type="submit"] {
+    width: 10%; }
+  .input-hold label {
+    position: absolute;
+    left: 8px;
+    top: -1.8em;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+    color: #fff; }
+  .input-hold.js-hide-label label {
+    opacity: 0;
+    top: 1.5em; }
+
 /* GENERAL */
 .red {
   background: #DB1928 !important; }
@@ -12914,8 +12953,15 @@ h1.entry-title, h2.entry-title {
   #main-footer #footer-bottom {
     background-color: transparent !important; }
   #main-footer .footer-widget {
-    width: 100%;
     margin-bottom: 0; }
+    #main-footer .footer-widget:nth-child(1) {
+      width: 25%; }
+    #main-footer .footer-widget:nth-child(2) {
+      width: 50%; }
+    #main-footer .footer-widget:nth-child(3) {
+      width: 10%; }
+    #main-footer .footer-widget .fwidget, #main-footer .footer-widget .textwidget {
+      width: 100%; }
     #main-footer .footer-widget h4 {
       font-size: 20px;
       color: #fff !important; }

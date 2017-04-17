@@ -714,9 +714,6 @@ class ET_Builder_Module_Title_Big extends ET_Builder_Module {
 new ET_Builder_Module_Title_Big;
 
 
-
-
-
 // Custom Blurb
 class ET_Builder_Riehm_Module_Blurb extends ET_Builder_Module {
 	function init() {
@@ -1297,7 +1294,7 @@ class ET_Builder_Riehm_Module_Blurb extends ET_Builder_Module {
 
 		$output = sprintf(
 			//'<div%5$s class="et_pb_blurb%4$s%6$s%7$s">
-			'<div%9$s class="csa-plan-description et_pb_blurb%9$s%11$s%12$s">
+			'<div%10$s class="csa-plan-description et_pb_blurb%9$s%11$s%12$s">
 				<div class="et_pb_blurb_content">
 					<div class="intro">
 						%2$s
@@ -1323,17 +1320,15 @@ class ET_Builder_Riehm_Module_Blurb extends ET_Builder_Module {
 			$subtitle,
 			$buttontext,
 			$accordiontitle,
-			
 			$priceperweek,
 			$run,
-			
 			esc_attr( $class ),
 			( '' !== $module_id ? sprintf( ' id="%1$s"', esc_attr( $module_id ) ) : '' ),
 			( '' !== $module_class ? sprintf( ' %1$s', esc_attr( $module_class ) ) : '' ),
 			sprintf( ' et_pb_blurb_position_%1$s', esc_attr( $icon_placement ) )
 		);
 
-		return $output;
+		return $output;	
 	}
 }
 new ET_Builder_Riehm_Module_Blurb;

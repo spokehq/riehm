@@ -19,16 +19,7 @@
 
 <?php if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
 
-			<footer id="main-footer">
-				<div id="footer-bottom">
-					<div class="container clearfix">
-						<?php if ( false !== et_get_option( 'show_footer_social_icons', true ) ) {
-							get_template_part( 'includes/social_icons', 'footer' );
-						}
-						echo et_get_footer_credits(); ?>
-					</div>	<!-- .container -->
-				</div>
-				
+			<footer id="main-footer">				
 				<?php get_sidebar( 'footer' ); ?>
 
 
@@ -60,51 +51,63 @@
 
 	<?php wp_footer(); ?>
 	<script type="text/javascript">
+		jQuery.support.placeholder = (function() {
+			var i = document.createElement('input');
+			return 'placeholder' in i;
+		})();
+		
+		if(jQuery.support.placeholder) {
+			jQuery('form div.input-hold').each(function() {
+				jQuery(this).addClass('js-hide-label');
+			});
+			
+		}
+	
+	jQuery('form .input-hold').find('input, textarea').on('keyup blur focus', function(e) {
+		// cache our selectors
+		var $this = jQuery(this),
+			$parent = $this.parent();
+			
+		if(e.type == 'keyup') {
+			if($this.val() == '') {
+				$parent.addClass('js-hide-label');
+			} else {
+				$parent.removeClass('js-hide-label');
+			}
+		} else if(e.type == 'blur') {
+			if($this.val() == '') {
+				$parent.addClass('js-hide-label');
+			} else {
+				$parent.removeClass('js-hide-label').addClass('js-unhighlight-label');
+			}
+		} else if(e.type == 'focus') {
+			if($this0.val() !== '') {
+				$parent.removeClass('js-unhighlight-label');
+			}	
+		}
+	});
+
 		jQuery('#top-menu .et-social-icon a').addClass('icon');
 		
 		jQuery('.csa-plan-description .et-learn-more').click(function() {
 			jQuery(this).find('.heading-more').toggleClass('open');
 			jQuery(this).find('.learn-more-content').toggleClass('reveal-hide');
+			
+			if(jQuery(this).find('.heading-more.open').length) {
+				$hash = jQuery(this).closest('.csa-plan-description').attr('id');
+				console.log('window hash '+$hash);
+				window.location.hash = 'details-'+$hash;
+			} 
 		});
-
-/*
-		jQuery('.et-learn-more').click(function() {
-			var parentRow = jQuery(this).closest('.et_pb_row');
-			if(parentRow.hasClass('et_pb_equal_columns') || parentRow.find('.et_pb_column').hasClass('make-equal-again')) {
-				parentRow.toggleClass('et_pb_equal_columns display-box');
-				jQuery(this).closest('.et_pb_column').toggleClass('make-equal-again');
-			}
-		});
-*/
-
 
 		
 		function sectionLineUp() {
 			if(jQuery(window).width() > 980) {
-/*
-				var introHeight = 
-					jQuery('.et_pb_equal_columns .et_pb_column .intro').map(function(){
-						return jQuery(this).height()+20;
-					}).get();
-				var maxHeight = Math.max.apply(null, introHeight);
-				
-				jQuery('.et_pb_equal_columns .et_pb_column .intro').height(maxHeight);
-*/
-/*
-				var introHeight = 
-					jQuery('.et_pb_equal_columns').each(function(){
-						console.log(jQuery(this).find('.et_pb_column .intro').height()+20);
-						return jQuery(this).find('.et_pb_column .intro').height()+20;
-					}).get();
-				
-				var maxHeight = Math.max.apply(null, introHeight);
-				
-				jQuery('.et_pb_equal_columns .et_pb_column .intro').height(maxHeight);
-*/
+
 				jQuery('.et_pb_equal_columns').each(function(){
-						console.log(jQuery(this).find('.et_pb_column .intro').height()+20);
-						var setheight = jQuery(this).find('.et_pb_column .intro').height()+30;
-						jQuery(this).find('.et_pb_column .intro').height(setheight);
+					console.log(jQuery(this).find('.et_pb_column .intro').height()+20);
+					var setheight = jQuery(this).find('.et_pb_column .intro').height()+30;
+					jQuery(this).find('.et_pb_column .intro').height(setheight);
 				});
 				
 				
@@ -127,14 +130,26 @@
 			sectionLineUp();
 		});
 
-/*
-		var $icon = jQuery('.et-pb-icon[style*="color"]');
-		if($icon.length) {
-			alert('add fill');
-			jQuery(this).find('svg').style('fill');
-		}
-*/
+
+		if(window.location.hash) {
+			hash = window.location.hash.substr(1);
+			console.log(hash);
+			
+			//jumpto = hash.replace('details-','');
+			
+			//jQuery('#'+jumpto).find('.learn-more-content').trigger('click');
+			jQuery('#'+hash).find('.learn-more-content').trigger('click');
+			
+			jQuery('html, body').animate({
+			  	scrollTop: jQuery('#'+hash).offset().top+(-210)
+			}, {
+				queue:false,
+				duration:100
+			});
+			
+					
 		
+		}
 
 	</script>
 </body>
